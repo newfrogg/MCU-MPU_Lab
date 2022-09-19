@@ -91,27 +91,32 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int state = -1;
+  int state = -1, count = 0;
   while (1)
   {
-	  switch(state){
-	  case -1:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-	  case 0:
-		  HAL_Delay(1000);
-	  case 1:
-		  HAL_Delay(1000);
-		  state = 2;
-		  break;
-	  case 2:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-		  state = 0;
-		  break;
-	  }
-    /* USER CODE END WHILE */
+      switch (state)
+      {
+      case -1: // Initial State
+          HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+          state = 0;
+      case 0: // Loop State
+          switch (count)
+          {
+          case 2: // Reset mode
+              HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+              HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+              count = 0;
+              break;
+          }
+      default: // count = 0,1
+          count++;
+          break;
+          break;
+      }
+      HAL_Delay(1000);
+      /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+      /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
