@@ -92,60 +92,60 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int time = -1, state = -1;
+  int time = 0, state = -1;
   while (1)
   {
 	  switch (state){
 	  case -1:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 		  state = 0;
-		  break;
 
 	  case 0:
-		  time++;
 		  switch (time){
-		  case 0:
+		  case 5:
 			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-			  break;
-		  case 4:
+			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
 			  state = 1;
-			  time = -1;
+			  time = 0;
+			  break;
+		  default:
+			  time++;
 			  break;
 		  }
-		  HAL_Delay(1000);
 		  break;
 
 	  case 1:
 		  time++;
 		  switch (time){
-		  case 0:
-			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		  case 3:
 			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-			  break;
-		  case 2:
+			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 			  state = 2;
-			  time = -1;
+			  time = 0;
+			  break;
+		  default:
+			  time++;
 			  break;
 		  }
-		  HAL_Delay(1000);
 		  break;
+
 	  case 2:
 		  time++;
 		  switch (time){
-		  case 0:
-			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+		  case 2:
 			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-			  break;
-		  case 1:
+			  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 			  state = 0;
-			  time = -1;
+			  time = 0;
+			  break;
+		  default:
+			  time++;
 			  break;
 		  }
-		  HAL_Delay(1000);
 		  break;
 	  }
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
