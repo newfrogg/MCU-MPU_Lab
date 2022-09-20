@@ -97,16 +97,16 @@ void display7SEG(int num, GPIO_TypeDef* GPIOx, uint16_t start_index){
 		temp = 0b0010010;
 		break;
 	case 6:
-		temp = 0b00000010;
+		temp = 0b0000010;
 		break;
 	case 7:
-		temp = 0b01111000;
+		temp = 0b1111000;
 		break;
 	case 8:
 		temp = 0b0;
 		break;
 	case 9:
-		temp = 0b00010000;
+		temp = 0b0010000;
 		break;
 	default:
 		temp = !0b0;
