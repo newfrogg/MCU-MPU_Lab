@@ -57,11 +57,15 @@ static void MX_GPIO_Init(void);
 
 /* USER CODE END 0 */
 
+void writePin(GPIO_TypeDef* GPIOx, uint16_t index){
+
+
+}
+
 /**
   * @brief  The application entry point.
   * @retval int
   */
-
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -92,33 +96,25 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int state = 0;
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
+
+//  Init the clock with time: 0'0'0'
+
+  int hrs = 0;
+  int count_minutes = -1, minutes = 0;
+  int count_seconds = -1, seconds = 0;
   while (1)
   {
-	  switch(state){
-	  case 10:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  state = 1;
-		  break;
-	  case 8:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-		  state = 9;
+	  count_seconds++;
+	  switch(count_seconds){
+	  case 0:
+		  HAL_GPIO_WritePin(GPIOA, CLOCK_0_Pin, GPIO_PIN_SET);
 		  break;
 	  case 5:
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
-		  state = 6;
-		  break;
-	  default:
-		  state++;
-		  break;
+		  HAL_GPIO_WritePin(GPIOA, CLOCK_1_Pin, GPIO_PIN_SET);
 	  }
-	  
-      HAL_Delay(1000);
+    /* USER CODE END WHILE */
+    /* USER CODE BEGIN 3 */
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -171,10 +167,16 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RED_LED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, CLOCK_0_Pin|CLOCK_1_Pin|CLOCK_2_Pin|CLOCK_3_Pin
+                          |CLOCK_4_Pin|CLOCK_5_Pin|CLOCK_6_Pin|CLOCK_7_Pin
+                          |CLOCK_8_Pin|CLOCK_9_Pin|CLOCK_10_Pin|CLOCK_11_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : RED_LED_Pin LED_YELLOW_Pin LED_GREEN_Pin */
-  GPIO_InitStruct.Pin = RED_LED_Pin|LED_YELLOW_Pin|LED_GREEN_Pin;
+  /*Configure GPIO pins : CLOCK_0_Pin CLOCK_1_Pin CLOCK_2_Pin CLOCK_3_Pin
+                           CLOCK_4_Pin CLOCK_5_Pin CLOCK_6_Pin CLOCK_7_Pin
+                           CLOCK_8_Pin CLOCK_9_Pin CLOCK_10_Pin CLOCK_11_Pin */
+  GPIO_InitStruct.Pin = CLOCK_0_Pin|CLOCK_1_Pin|CLOCK_2_Pin|CLOCK_3_Pin
+                          |CLOCK_4_Pin|CLOCK_5_Pin|CLOCK_6_Pin|CLOCK_7_Pin
+                          |CLOCK_8_Pin|CLOCK_9_Pin|CLOCK_10_Pin|CLOCK_11_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
