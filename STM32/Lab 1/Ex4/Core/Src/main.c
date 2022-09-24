@@ -149,25 +149,23 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  int counter = 0;
   while (1)
   {
-	  int counter = 0;
-	  while (1){
-	      if(counter >= 10) counter = 0;
-	      /* This code is test
-	       * - the synchronization of 2 display7SEG on 1 counter
-	       * - the mixer 2 display7SEG on only 1 port
-	      */
-	      display7SEG(9 - counter, GPIOB, 8);
-	      display7SEG(counter, GPIOB, 0);
-	      counter++;
-	      HAL_Delay(1000);
-	  }
+      if(counter >= 10) counter = 0;
+      /* This code is test
+       * - the synchronization of 2 display7SEG on 1 counter
+       * - the mixer 2 display7SEG on only 1 port
+      */
+      display7SEG(9 - counter, GPIOB, 8);
+      display7SEG(counter, GPIOB, 0);
+      counter++;
+      HAL_Delay(1000);
+  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+
   /* USER CODE END 3 */
 }
 

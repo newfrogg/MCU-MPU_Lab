@@ -54,13 +54,33 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/*			function <DisplayTime>
+ *
+ * @ brief	Display analog clock (seconds, minutes, hours) on selected block of data port bit
+ *
+ * @ note	This function uses GPIOx to write the desired time includes hours, minutes, seconds
+ * 			Assume that all pins have been adjacently placed on only 1 port, started from <base_index>
+ * 			Firstly, it reset ODT register to low level state. Then, using shift left bit, ODR is calculated
+ * 			to achieve desired value to display time.
+ *
+ * 			|> This function is implemented to in the scale of 12 clock level (0, 1, ... 11) in hours, (0, 5, ... 55) in minutes and seconds.
+ * 			Therefore, for better performance this function should be triggered only if hours, minutes or seconds have a change value within this scale.
+ *
+ * @ param	hours, minutes, seconds : time to display on analog clock
+ *
+ * 			GPIOx: Selected port
+ *
+ * 			base_index: the base index of selected block of data port bit
+ *
+ * */
+void displayTime(uint16_t hours, uint16_t minutes, uint16_t seconds, GPIO_TypeDef* GPIOx, int base_index){
+	minutes /= 5;
+	seconds /= 5;
+	GPIOx->ODR = 0x000 << base_index;
+	GPIOx->ODR |= ((0b1 << hours) | (0b1 << minutes) | (0b1 << seconds) )<< base_index;
+}
 
 /* USER CODE END 0 */
-
-void writePin(GPIO_TypeDef* GPIOx, uint16_t index){
-
-
-}
 
 /**
   * @brief  The application entry point.
@@ -96,25 +116,46 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-//  Init the clock with time: 0'0'0'
-
-  int hrs = 0;
-  int count_minutes = -1, minutes = 0;
-  int count_seconds = -1, seconds = 0;
+//  Initial state that time is 0h 0m 0s
+  int hours = 0;
+  int minutes= 0;
+  int seconds = 0;
+  int rem_seconds = 0;
+  int rem_minutes = 0;
   while (1)
   {
-	  count_seconds++;
-	  switch(count_seconds){
-	  case 0:
-		  HAL_GPIO_WritePin(GPIOA, CLOCK_0_Pin, GPIO_PIN_SET);
-		  break;
-	  case 5:
-		  HAL_GPIO_WritePin(GPIOA, CLOCK_1_Pin, GPIO_PIN_SET);
+// Intuitive, only if seconds = 0, 5, 10, 15,...55 then analog clock would be change value with 12 scale line
+// and displayTime need to be triggered to display analog clock time
+	  if(seconds % 5 == 0)
+		  displayTime(hours, minutes, seconds, GPIOA, 4);
+
+	  if(seconds == 60){
+		  seconds = 0;
+		  rem_seconds = 1;
 	  }
+	  else
+		  seconds++;
+
+
+	  if(minutes == 60){
+		  minutes = 0;
+		  rem_minutes = 1;
+	  }
+	  else{
+		  minutes += rem_seconds;
+		  rem_seconds = 0;
+	  }
+
+	  if(hours == 12)
+		  hours = 0;
+	  else{
+		  hours += rem_minutes;
+		  rem_minutes = 0;
+	  }
+
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(1000);
+	  HAL_Delay(60);
   }
   /* USER CODE END 3 */
 }
