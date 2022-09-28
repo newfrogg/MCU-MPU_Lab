@@ -54,6 +54,28 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void clearAllClock(){
+	GPIOA->ODR &= 0xffff000f;
+}
+
+void setNumberOnClock(int num){
+	if(num > 12)
+		num /= 5;
+	if(num == 12)
+		num = 0;
+	GPIOA->ODR |= 0xffff000f + (0x1 << (num + 4));
+}
+
+void clearNumberOnClock(int num){
+	if(num > 12)
+		num /= 5;
+	if(num == 12)
+		num = 0;
+	if(num >= 12)
+		num /= 5;
+	GPIOA->ODR &= ~(uint32_t)(0x1 << (num / 5 + 4));
+}
 /*			function <DisplayTime>
  *
  * @ brief	Display analog clock (seconds, minutes, hours) on selected block of data port bit
@@ -127,48 +149,46 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  Initial state that time is 0h 0m 0s
-  int hours = 7;
-  int minutes= 10;
-  int seconds = 55;
-  int rem_seconds = 0;
-  int rem_minutes = 0;
-  while (1)
-  {
-// Intuitive, only if seconds = 0, 5, 10, 15,...55 then analog clock would be change value with 12 scale line
-// and displayTime need to be triggered to display analog clock time
-	  displayTime(hours, minutes, seconds, GPIOA, 4);
-	  if(seconds == 60){
-		  seconds = 0;
-		  rem_seconds = 1;
-	  }
-	  else
-		  seconds++;
+  //  Initial state that time is 0h 0m 0s
+    int hours = 7;
+    int minutes= 10;
+    int seconds = 40;
+    int rem_seconds = 0;
+    int rem_minutes = 0;
+    while (1)
+    {
+  	  displayTime(hours, minutes, seconds, GPIOA, 4);
+  	  if(seconds == 60){
+  		  seconds = 0;
+  		  rem_seconds = 1;
+  	  }
+  	  else
+  		  seconds++;
 
 
-	  if(minutes == 60){
-		  minutes = 0;
-		  rem_minutes = 1;
-	  }
-	  else{
-		  minutes += rem_seconds;
-		  rem_seconds = 0;
-	  }
+  	  if(minutes == 60){
+  		  minutes = 0;
+  		  rem_minutes = 1;
+  	  }
+  	  else{
+  		  minutes += rem_seconds;
+  		  rem_seconds = 0;
+  	  }
 
-	  if(hours == 12)
-		  hours = 0;
-	  else{
-		  hours += rem_minutes;
-		  rem_minutes = 0;
-	  }
+  	  if(hours == 12)
+  		  hours = 0;
+  	  else{
+  		  hours += rem_minutes;
+  		  rem_minutes = 0;
+  	  }
 
-    /* USER CODE END WHILE */
-    /* USER CODE BEGIN 3 */
+  	  HAL_Delay(60);
+      /* USER CODE END WHILE */
+      /* USER CODE BEGIN 3 */
 
-	  HAL_Delay(1000);
+    }
+    /* USER CODE END 3 */
   }
-  /* USER CODE END 3 */
-}
 
 /**
   * @brief System Clock Configuration
