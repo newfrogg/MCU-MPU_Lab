@@ -96,9 +96,8 @@ int main(void)
 
   while (1)
   {
-	  if(count++ < 12)
-		  GPIOA->ODR |= 0xffff000f + (0x1 << (count + 3));
-
+	  if(count < 12)
+		  GPIOA->ODR |= 0xffff000f + (0x1 << (count++ + 4));
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
 

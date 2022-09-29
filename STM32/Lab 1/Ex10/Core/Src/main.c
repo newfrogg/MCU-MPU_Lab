@@ -60,7 +60,7 @@ void clearAllClock(){
 }
 
 void setNumberOnClock(int num){
-	GPIOA->ODR |= 0xffff000f + (0b1 << (num + 4));
+	GPIOA->ODR |= 0xffff000f + (0x1 << (num + 4));
 }
 
 void clearNumberOnClock(int num){
@@ -113,7 +113,7 @@ int main(void)
    * Set the initial time of clock
    */
     int hours = 7;
-    int minutes= 10;
+    int minutes = 10;
     int seconds = 13;
 
   /*
