@@ -54,42 +54,6 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/*			function <DisplayTime>
- *
- * @ brief	Display analog clock (seconds, minutes, hours) on selected block of data port bit
- *
- * @ note	This function uses GPIOx to write the desired time includes hours, minutes, seconds
- * 			Assume that all pins have been adjacently placed on only 1 port, started from <base_index>
- * 			Firstly, it reset ODT register to low level state. Then, using shift left bit, ODR is calculated
- * 			to achieve desired value to display time.
- *
- * 			|> This function is implemented to in the scale of 12 clock level (0, 1, ... 11) in hours, (0, 5, ... 55) in minutes and seconds.
- * 			Therefore, for better performance this function should be triggered only if hours, minutes or seconds have a change value within this scale.
- *
- * @ param	hours, minutes, seconds : time to display on analog clock
- *
- * 			GPIOx: Selected port
- *
- * 			base_index: the base index of selected block of data port bit
- *
- * */
-void displayTime(uint16_t hours, uint16_t minutes, uint16_t seconds, GPIO_TypeDef* GPIOx, int base_index){
-	if(seconds == 60)
-		seconds = 0;
-	else
-		seconds /= 5;
-
-	if(minutes == 60)
-		minutes = 0;
-	else
-		minutes /= 5;
-
-	if(hours == 12)
-		hours = 0;
-
-	GPIOA->ODR &= 0x000 << base_index;
-	GPIOx->ODR |= ((0b1 << hours) | (0b1 << minutes) | (0b1 << seconds) )<< base_index;
-}
 
 /* USER CODE END 0 */
 
@@ -127,40 +91,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  Initial state that time is 0h 0m 0s
-  int hours = 7;
-  int minutes= 10;
-  int seconds = 55;
-  int rem_seconds = 0;
-  int rem_minutes = 0;
+
+  int count = 0;
+
   while (1)
   {
-// Intuitive, only if seconds = 0, 5, 10, 15,...55 then analog clock would be change value with 12 scale line
-// and displayTime need to be triggered to display analog clock time
-	  displayTime(hours, minutes, seconds, GPIOA, 4);
-	  if(seconds == 60){
-		  seconds = 0;
-		  rem_seconds = 1;
-	  }
-	  else
-		  seconds++;
-
-
-	  if(minutes == 60){
-		  minutes = 0;
-		  rem_minutes = 1;
-	  }
-	  else{
-		  minutes += rem_seconds;
-		  rem_seconds = 0;
-	  }
-
-	  if(hours == 12)
-		  hours = 0;
-	  else{
-		  hours += rem_minutes;
-		  rem_minutes = 0;
-	  }
+	  if(count++ < 12)
+		  GPIOA->ODR |= 0xffff000f + (0x1 << (count + 3));
 
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */

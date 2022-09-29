@@ -60,59 +60,18 @@ void clearAllClock(){
 }
 
 void setNumberOnClock(int num){
-	if(num > 12)
-		num /= 5;
-	if(num == 12)
-		num = 0;
-	GPIOA->ODR |= 0xffff000f + (0x1 << (num + 4));
+	GPIOA->ODR |= 0xffff000f + (0b1 << (num + 4));
 }
 
 void clearNumberOnClock(int num){
-	if(num > 12)
-		num /= 5;
-	if(num == 12)
-		num = 0;
-	if(num >= 12)
-		num /= 5;
-	GPIOA->ODR &= ~(uint32_t)(0x1 << (num / 5 + 4));
-}
-/*			function <DisplayTime>
- *
- * @ brief	Display analog clock (seconds, minutes, hours) on selected block of data port bit
- *
- * @ note	This function uses GPIOx to write the desired time includes hours, minutes, seconds
- * 			Assume that all pins have been adjacently placed on only 1 port, started from <base_index>
- * 			Firstly, it reset ODT register to low level state. Then, using shift left bit, ODR is calculated
- * 			to achieve desired value to display time.
- *
- * 			|> This function is implemented to in the scale of 12 clock level (0, 1, ... 11) in hours, (0, 5, ... 55) in minutes and seconds.
- * 			Therefore, for better performance this function should be triggered only if hours, minutes or seconds have a change value within this scale.
- *
- * @ param	hours, minutes, seconds : time to display on analog clock
- *
- * 			GPIOx: Selected port
- *
- * 			base_index: the base index of selected block of data port bit
- *
- * */
-void displayTime(uint16_t hours, uint16_t minutes, uint16_t seconds, GPIO_TypeDef* GPIOx, int base_index){
-	if(seconds == 60)
-		seconds = 0;
-	else
-		seconds /= 5;
-
-	if(minutes == 60)
-		minutes = 0;
-	else
-		minutes /= 5;
-
-	if(hours == 12)
-		hours = 0;
-
-	GPIOA->ODR &= 0x000 << base_index;
-	GPIOx->ODR |= ((0b1 << hours) | (0b1 << minutes) | (0b1 << seconds) )<< base_index;
+	GPIOA->ODR &= ~(uint32_t)(0x1 << (num + 4));
 }
 
+void displayTime(int hours, int minutes, int seconds){
+	setNumberOnClock(hours);
+	setNumberOnClock(minutes/5);
+	setNumberOnClock(seconds/5);
+}
 /* USER CODE END 0 */
 
 /**
@@ -149,40 +108,48 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //  Initial state that time is 0h 0m 0s
+
+  /*
+   * Set the initial time of clock
+   */
     int hours = 7;
     int minutes= 10;
-    int seconds = 40;
+    int seconds = 13;
+
+  /*
+   * Reminder of minutes and seconds
+   */
     int rem_seconds = 0;
     int rem_minutes = 0;
     while (1)
     {
-  	  displayTime(hours, minutes, seconds, GPIOA, 4);
-  	  if(seconds == 60){
-  		  seconds = 0;
-  		  rem_seconds = 1;
-  	  }
-  	  else
-  		  seconds++;
+		displayTime(hours, minutes, seconds);
+    	if(seconds == 60){
+    		seconds = 0;
+    		rem_seconds = 1;
+    	}
+    	else
+    		seconds++;
 
 
-  	  if(minutes == 60){
-  		  minutes = 0;
-  		  rem_minutes = 1;
-  	  }
-  	  else{
-  		  minutes += rem_seconds;
-  		  rem_seconds = 0;
-  	  }
+    	if(minutes == 60){
+    		minutes = 0;
+    		rem_minutes = 1;
+    	}
+    	else{
+    		minutes += rem_seconds;
+    		rem_seconds = 0;
+    	}
 
-  	  if(hours == 12)
-  		  hours = 0;
-  	  else{
-  		  hours += rem_minutes;
-  		  rem_minutes = 0;
-  	  }
+    	if(hours == 12)
+    		hours = 0;
+    	else{
+    		hours += rem_minutes;
+    		rem_minutes = 0;
+    	}
 
-  	  HAL_Delay(60);
+    	HAL_Delay(60);
+    	clearAllClock();
       /* USER CODE END WHILE */
       /* USER CODE BEGIN 3 */
 
