@@ -1,0 +1,32 @@
+2022-09-29 23:34:43,318 [INFO] Activator:177 - 
+
+
+2022-09-29 23:34:43,319 [INFO] Activator:178 - !SESSION log4j initialized
+2022-09-29 23:34:46,464 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Sep 29, 2022 11:34:46 PM org.glassfish.grizzly.http.server.NetworkListener start
+2022-09-29 23:34:46,465 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1594]
+2022-09-29 23:34:46,465 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-29 23:34:46,467 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Sep 29, 2022 11:34:46 PM org.glassfish.grizzly.http.server.HttpServer start
+2022-09-29 23:34:46,467 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2022-09-29 23:34:46,467 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-29 23:36:07,105 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-29 23:36:12,210 [INFO] Activator:177 - 
+
+
+2022-09-29 23:36:12,211 [INFO] Activator:178 - !SESSION log4j initialized
+2022-09-29 23:36:15,789 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Sep 29, 2022 11:36:15 PM org.glassfish.grizzly.http.server.NetworkListener start
+2022-09-29 23:36:15,791 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: Started listener bound to [localhost:1594]
+2022-09-29 23:36:15,792 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-29 23:36:15,793 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Sep 29, 2022 11:36:15 PM org.glassfish.grizzly.http.server.HttpServer start
+2022-09-29 23:36:15,794 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] INFO: [HttpServer] Started.
+2022-09-29 23:36:15,794 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-29 23:36:46,380 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2022-09-30 08:35:14,292 [INFO] Activator:177 - 
+
+
+2022-09-30 08:35:14,294 [INFO] Activator:178 - !SESSION log4j initialized
+2022-09-30 14:09:19,959 [INFO] Activator:177 - 
+
+
+2022-09-30 14:09:19,959 [INFO] Activator:178 - !SESSION log4j initialized
+2022-09-30 14:10:03,150 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://download.eclipse.org:80: Socket operation on nonsocket: configureBlocking
+2022-09-30 14:10:03,150 [INFO] RetryExec:113 - Retrying request to {}->http://download.eclipse.org:80
