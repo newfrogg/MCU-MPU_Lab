@@ -48,15 +48,54 @@ TIM_HandleTypeDef htim2;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void display7SEG(int num, GPIO_TypeDef* GPIOx, uint16_t start_index){
+	__IO uint16_t temp;
+	switch(num){
+	case 0:
+		temp = 0b1000000;
+		break;
+	case 1:
+		temp = 0b1111001;
+		break;
+	case 2:
+		temp = 0b0100100;
+		break;
+	case 3:
+		temp = 0b0110000;
+		break;
+	case 4:
+		temp = 0b0011001;
+		break;
+	case 5:
+		temp = 0b0010010;
+		break;
+	case 6:
+		temp = 0b0000010;
+		break;
+	case 7:
+		temp = 0b1111000;
+		break;
+	case 8:
+		temp = 0b0;
+		break;
+	case 9:
+		temp = 0b0010000;
+		break;
+	default:
+		temp = !0b0;
+		break;
+	}
+	uint16_t bitmask = 0b1111111 << start_index ;
+	GPIOx->ODR = (GPIOx->ODR & ~bitmask) | (temp << start_index);
+}
 /* USER CODE END 0 */
 
 /**
@@ -86,12 +125,12 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
   MX_TIM2_Init();
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
-
+  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -159,7 +198,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 9;
+  htim2.Init.Period = 10;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -194,27 +233,57 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|EN0_Pin|EN1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_RED_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PA5 EN0_Pin EN1_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|EN0_Pin|EN1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB0 PB1 PB2 PB3
+                           PB4 PB5 PB6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 100;
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	counter--;
-	if(counter <= 0){
-		counter = 100;
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+int counter2 = 50;
+int counter1 = 100;
+int num = 1;
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
+	/*
+	 * Trigger the led
+	 */
+	counter1--;
+	if(counter1 <= 0){
+		counter1 = 50;
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 	}
+	/*
+	 * Trigger the 7segment LED
+	 */
+	counter2--;
+	if(counter2 <= 0){
+		counter2 = 50;
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
+		num = 3 - num;
+	}
+	display7SEG(num, GPIOB, 0);
 }
 /* USER CODE END 4 */
 

@@ -9,6 +9,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\HK211\CO3009\Lab\STM32\Lab 1\Ex10"/>
+			<item value="D:\HK211\CO3009\Lab\STM32\Lab 1\Ex4"/>
 			<item value="D:\HK211\CO3009\Lab\STM32\Lab 1\Ex3"/>
 			<item value="D:\HK211\CO3009\Lab\STM32\Lab 1\Ex2"/>
 			<item value="D:\HK211\CO3009\Lab\STM32\Lab 1\Ex1"/>
