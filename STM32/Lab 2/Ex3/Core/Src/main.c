@@ -129,9 +129,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
-  HAL_GPIO_TogglePin(EN1_GPIO_Port, EN1_Pin);
-  HAL_GPIO_TogglePin(EN2_GPIO_Port, EN2_Pin);
-  HAL_GPIO_TogglePin(EN3_GPIO_Port, EN3_Pin);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -267,30 +265,34 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+// Set bit en 1..4
+void setEnable (uint16_t num){
+//	uint16_t bitmask = 0b1111111 << start_index ;
+//	GPIOx->ODR = (GPIOx->ODR & ~bitmask)
+//			| (temp << start_index);
+	uint16_t bitmask = 0xf << 6;
+	GPIOA->ODR = (GPIOA->ODR & ~bitmask ) | (~(1 << num) << 6);
+
+}
 const int MAX_LED = 4;
 int index_led = 0;
-int led_buffer[4] = {1,2,3,4};
+int led_buffer[4] = {1,2,4,5};
 void update7SEG(int index){
 	switch(index){
-	case 0:	 // Display the first 7 SEG with led_buffer [0]
-		HAL_GPIO_TogglePin(EN3_GPIO_Port, EN3_Pin);
-		HAL_GPIO_TogglePin(EN0_GPIO_Port, EN0_Pin);
-		break ;
-	case 1:	 // Display the second 7 SEG with led_buffer [1]
-		HAL_GPIO_TogglePin(EN0_GPIO_Port, EN0_Pin);
-		HAL_GPIO_TogglePin(EN1_GPIO_Port, EN1_Pin);
-		break ;
-	case 2:	 // Display the third 7 SEG with led_buffer [2]
-		HAL_GPIO_TogglePin(EN1_GPIO_Port, EN1_Pin);
-		HAL_GPIO_TogglePin(EN2_GPIO_Port, EN2_Pin);
-		break ;
-	case 3:  // Display the forth 7 SEG with led_buffer [3]
-		HAL_GPIO_TogglePin(EN2_GPIO_Port, EN2_Pin);
-		HAL_GPIO_TogglePin(EN3_GPIO_Port, EN3_Pin);
-		break ;
-	default :
-		index = 0;
-		break ;
+	case 0:
+		setEnable(0);
+		break;
+	case 1:
+		setEnable(1);
+		break;
+	case 2:
+		setEnable(2);
+		break;
+	case 3:
+		setEnable(3);
+		break;
+	default:
+		break;
 	}
 	display7SEG(led_buffer[index], GPIOB, 0);
 }
@@ -300,6 +302,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	/*
 	 * Trigger the led
 	 */
+
 	counter1--;
 	if(counter1 <= 0){
 		counter1 = 100;
@@ -314,6 +317,8 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 		counter2 = 50;
 		update7SEG(index_led++);
 	}
+	if(index_led > 3)
+		index_led = 0;
 }
 /* USER CODE END 4 */
 
