@@ -164,14 +164,6 @@ int main(void) {
 		led_buffer[1] = hour % 10;
 		led_buffer[2] = minute / 10;
 		led_buffer[3] = minute % 10;
-		update7SEG(0);
-		HAL_Delay(50);
-		update7SEG(1);
-		HAL_Delay(50);
-		update7SEG(2);
-		HAL_Delay(50);
-		update7SEG(3);
-		HAL_Delay(50);
 	}
 	/* USER CODE END 2 */
 
@@ -179,19 +171,6 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	setTimer0(1000);
 	while (1) {
-		second++;
-		if (second >= 60) {
-			second = 0;
-			minute++;
-		}
-		if (minute >= 60) {
-			minute = 0;
-			hour++;
-		}
-		if (hour >= 24) {
-			hour = 0;
-		}
-
 		updateClockBuffer();
 		if (timer0_flag == 1) {
 			HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
