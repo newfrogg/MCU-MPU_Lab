@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -166,14 +166,6 @@ int main(void) {
 		led_buffer[1] = hour % 10;
 		led_buffer[2] = minute / 10;
 		led_buffer[3] = minute % 10;
-		update7SEG(0);
-		setTimer1(100);
-		update7SEG(1);
-		setTimer1(100);
-		update7SEG(2);
-		setTimer1(100);
-		update7SEG(3);
-		setTimer1(100);
 	}
 	/* USER CODE END 2 */
 
