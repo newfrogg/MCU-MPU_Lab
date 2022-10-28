@@ -23,3 +23,6 @@ This repo is about CO3009 Lab - HK212 - HCMUT, includes:
 > The source code for excecise 7, 8, 9 have been placed in _main.c_ of Ex10 as support functions.
 
 ## Lab-2
+- [x] Ex1 - Ex6.
+- [x] Recorrect Ex7, Ex8 with setTimer().
+- [ ] Display own matrix led (Ex9, Ex10).
