@@ -142,8 +142,8 @@ int main(void) {
 	}
 
 	int led_buffer[4] = { 1, 2, 4, 5 };
-	void update7SEG(int index) {
-		switch (index) {
+	void update7SEG(int index_led) {
+		switch (index_led) {
 		case 0:
 			setEnable(0);
 			break;
