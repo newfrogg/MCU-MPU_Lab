@@ -26,3 +26,7 @@ This repo is about CO3009 Lab - HK212 - HCMUT, includes:
 - [x] Ex1 - Ex6.
 - [x] Recorrect Ex7, Ex8 with setTimer().
 - [ ] Display own matrix led (Ex9, Ex10).
+
+### LED MATRIX
+- [ ] updateLEDMatrix(int index)
+- [ ] create an animation
