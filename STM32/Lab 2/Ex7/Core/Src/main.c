@@ -171,24 +171,35 @@ int main(void) {
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-	setTimer1(1000);
+	setTimer1(500);
+	int half_sec = 0;
 	while (1) {
-		second++;
-		if (second >= 60) {
-			second = 0;
-			minute++;
-		}
-		if (minute >= 60) {
-			minute = 0;
-			hour++;
-		}
-		if (hour >= 24) {
-			hour = 0;
-		}
+		if (timer1_flag == 1) {
+			setTimer1(500);
+			half_sec++;
+			if (half_sec == 2) {
+				second++;
+				if (second >= 60) {
+					second = 0;
+					minute++;
+				}
+				if (minute >= 60) {
+					minute = 0;
+					hour++;
+				}
+				if (hour >= 24) {
+					hour = 0;
+				}
+				updateClockBuffer();
+				HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 
-		updateClockBuffer();
-		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-		setTimer1(1000);
+				half_sec = 0;
+			}
+			update7SEG(index_led++);
+		}
+		if (index_led > 3)
+			index_led = 0;
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
