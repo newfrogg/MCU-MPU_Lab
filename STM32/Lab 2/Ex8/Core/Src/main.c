@@ -133,6 +133,7 @@ int main(void) {
 
 	int hour = 15, minute = 8, second = 50;
 	int led_buffer[4] = { 1, 2, 4, 5 };
+	int index_led = 0;
 	// Set bit en 1..4
 	void setEnable(uint16_t num) {
 		uint16_t bitmask = 0xf << 6;
@@ -168,38 +169,40 @@ int main(void) {
 		led_buffer[1] = hour % 10;
 		led_buffer[2] = minute / 10;
 		led_buffer[3] = minute % 10;
-		update7SEG(0);
-		HAL_Delay(100);
-		update7SEG(1);
-		HAL_Delay(100);
-		update7SEG(2);
-		HAL_Delay(100);
-		update7SEG(3);
-		HAL_Delay(100);
 	}
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-	setTimer1(1000);
+	setTimer1(500);
+	int half_sec = 0;
 	while (1) {
 		if (timer1_flag == 1) {
-			second++;
-			if (second >= 60) {
-				second = 0;
-				minute++;
+			setTimer1(500);
+			half_sec++;
+			if (half_sec == 2) {
+				second++;
+				if (second >= 60) {
+					second = 0;
+					minute++;
+				}
+				if (minute >= 60) {
+					minute = 0;
+					hour++;
+				}
+				if (hour >= 24) {
+					hour = 0;
+				}
+				updateClockBuffer();
+				HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+
+				half_sec = 0;
 			}
-			if (minute >= 60) {
-				minute = 0;
-				hour++;
-			}
-			if (hour >= 24) {
-				hour = 0;
-			}
+			update7SEG(index_led++);
 		}
-		updateClockBuffer();
-		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-		setTimer1(1000);
+		if (index_led > 3)
+			index_led = 0;
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
