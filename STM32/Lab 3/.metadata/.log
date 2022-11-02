@@ -1,0 +1,164 @@
+!SESSION 2022-11-02 10:42:24.368 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.bindings' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.enclosing'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.wst.jsdt.ui.edit.text.java.select.last'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.external.javadoc'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.navigate.open.type'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.navigate.open.type'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.navigate.open.type'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.editor'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.implementation'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.super.implementation'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.previous.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.previous.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.previous.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.next.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.next.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.goto.next.member'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.show.outline'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.open.call.hierarchy'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.gotoBreadcrumb'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.surround.with.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.specific_content_assist.command'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.source.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.source.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.source.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.source.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.format'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.organize.imports'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.indent'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.toggle.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.toggle.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.toggle.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.toggle.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.add.block.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.add.block.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.add.block.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.add.block.comment'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.override.methods'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.override.methods'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.surround.with.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.move.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.rename.element'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.modify.method.parameters'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.inline'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.extract.method'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.extract.local.variable'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.promote.local.variable'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.extract.constant'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.ui.edit.text.java.introduce.parameter'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.jdt.debug.ui.commands.Inspect'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.egit.ui.team.Commit'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.478
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.egit.ui.team.Pull'
+!SUBENTRY 1 org.eclipse.ui 2 0 2022-11-02 10:42:36.479
+!MESSAGE Cannot bind to an undefined command: plug-in='com.github.intellijideakeymap4eclipse.plugin', id='org.eclipse.egit.ui.team.Push'
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-11-02 10:42:40.233
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-11-02 10:42:40.303
+!MESSAGE Log4j initialized with config file D:\HK211\CO3009\Lab\STM32\Lab 3\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-02 10:42:49.609
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2022-11-02 10:43:19.172
+!MESSAGE Server returned lastModified <= 0 for https://raw.githubusercontent.com/IntelliJIdeaKeymap4Eclipse/IntelliJIdeaKeymap4Eclipse-update-site/main/content.jar
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-11-02 10:44:02.573
+!MESSAGE Indexed 'TrafficLight' (19 sources, 78 headers) in 3.64 sec: 3,647 declarations; 13,057 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
